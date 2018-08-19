@@ -16,6 +16,7 @@ export class SearchService {
   gitUserError:boolean;
 
    //NOTE: this api key has no scope make sure you do not share an api key that has been scoped
+   myApi='677a4f27a59c8ce81f5ba8333efe2a83ac3db212'
 
   constructor(private http:HttpClient) { 
     this.users = new User ("","","","",0,new Date(),0,0);
