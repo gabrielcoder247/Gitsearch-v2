@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService} from "../search.service";
+import {Repos} from '../repos'
 import {User} from "../user"
-import {Repos} from "../repos"
-import { SearchService } from '../search.service';
 
 @Component({
   selector: 'app-search',
+  providers: [ SearchService],
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css'],
-  providers:[SearchService]
+  styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-
   public searchName:string = 'gabrielcoder247';
   public gitUser:string;
   invalidSearch:boolean= false
 
   users:User;
-  repos:Repos;
+  repos:any;
 
   searchUser(name){
     this.gitUser='';
@@ -39,11 +38,11 @@ export class SearchComponent implements OnInit {
     
   }
 
-
-  constructor(public gitUserRequests:SearchService,public gitUserRepos:SearchService,public router:SearchService) { }
+  constructor(public gitUserRequests:SearchService,public gitUserRepos:SearchService) { }
 
   ngOnInit() {
-    this.searchUsers();
+    this.searchUsers()
+    
   }
   searchUsers(){
     this.gitUserRequests.gitUser(this.searchName).then(()=>{
@@ -53,6 +52,5 @@ export class SearchComponent implements OnInit {
     this.gitUserRepos.getUserRepos(this.searchName).then(()=>{
       this.repos=this.gitUserRepos.repos
   });
-
 }
 }
