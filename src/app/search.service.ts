@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import {resolve} from 'url';
-import { reject } from 'q';
+// import {resolve} from 'url';
+// import { reject } from 'q';
+import {environment} from './../environments/environment';
 import {HttpClient} from '@angular/common/http';
 import {User} from './user';
 import {Repos} from './repos';
@@ -15,8 +16,7 @@ export class SearchService {
   searchRepo:any;
   gitUserError:boolean;
 
-   //NOTE: this api key has no scope make sure you do not share an api key that has been scoped
-   myApi='677a4f27a59c8ce81f5ba8333efe2a83ac3db212'
+  public token: string = environment.token; 
 
   constructor(private http:HttpClient) { 
     this.users = new User ("","","","",0,new Date(),0,0);
@@ -38,7 +38,7 @@ export class SearchService {
       following:number;
     }
     let promise = new Promise((resolve,reject)=>{
-      this.http.get<ApiResponse>("https://api.github.com/users/"+searchName+"?access_token="+this.myApi).toPromise().then(getResponse=>{
+      this.http.get<ApiResponse>("https://api.github.com/users/"+searchName+"?access_token="+this.token).toPromise().then(getResponse=>{
         if(getResponse.name){
           this.users.name = getResponse.name;
         }
@@ -79,7 +79,7 @@ export class SearchService {
       created_at:Date;
     }
     let myPromise = new Promise((resolve,reject)=>{
-      this.http.get<ApiResponse>("https://api.github.com/users/"+searchName+"/repos?order=created&sort=asc?access_token="+this.myApi).toPromise().then(getRepoResponse=>{
+      this.http.get<ApiResponse>("https://api.github.com/users/"+searchName+"/repos?order=created&sort=asc?access_token="+this.token).toPromise().then(getRepoResponse=>{
         this.newRepo = getRepoResponse;
         resolve();
       },error=>{
@@ -94,7 +94,7 @@ export class SearchService {
       items:any;
     }
     let promise = new Promise((resolve,reject)=>{
-      this.http.get<ApiResponse>("https://api.github.com/search/repositories?q="+searchName+"&per_page="+toShow+"&sort=forks&order=asc?access_token="+this.myApi).toPromise().then(getRepoResponse=>{
+      this.http.get<ApiResponse>("https://api.github.com/search/repositories?q="+searchName+"&per_page="+toShow+"&sort=forks&order=asc?access_token="+this.token).toPromise().then(getRepoResponse=>{
         // console.log("success")
         this.searchRepo = getRepoResponse.items;
         resolve();

@@ -12,7 +12,7 @@ import { Repos } from '../repos';
 export class RepositoriesComponent implements OnInit {
   repos:Repos;
   repoError:boolean;
-  public searchRepo:String = "hexcrypt_aes256_encryption";
+  public searchRepo:String;
   public nameToSearch:String;
   public resultCount = 7;
 
