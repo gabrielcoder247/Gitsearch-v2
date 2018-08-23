@@ -40,7 +40,7 @@ export class SearchComponent implements OnInit {
   }
 
 
-  constructor(public gitUserRequests:SearchService,public gitUserRepos:SearchService) { }
+  constructor(public gitUserRequests:SearchService,public gitUserRepos:SearchService,public router:SearchService) { }
 
   ngOnInit() {
     this.searchUsers();

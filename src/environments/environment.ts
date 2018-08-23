@@ -5,7 +5,7 @@
 export const environment = {
   production: true,
   apiUrl:"http://api.giphy.com/v1/gifs/random",
-  token :"7e4e8be5e5415421545bcd94967e969b4213ffa3"
+  token :"6e5f94bf1b8fefbc41ad7afbf2126bab300d2d58"
 };
 
 /*
