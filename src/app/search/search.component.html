@@ -12,7 +12,7 @@
     <div class="col-md-7 git-user">
       <div class="table git-table">
         <h3 appHighlight> {{users.name | reverse}}</h3>
-        <table class="table info-bio">
+        <table class="table table-hover">
           <tbody>
             <tr>
               <th scope="row">Github Username:</th>
@@ -49,7 +49,7 @@
     <div *ngIf="gitUserRepos.gitUserError===false" class="col-md-12 user-repos">
       <h3 >Repositories</h3>
       <div class="table git-table">
-        <table class="table my-repos">
+        <table class="table table-striped">
           <tbody>
             <tr *ngFor='let repository of gitUserRepos.newRepo'>
               <td>
