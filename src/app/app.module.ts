@@ -20,6 +20,7 @@ import { ReversePipe } from './pipes/reverse.pipe';
 import { UpperPipe } from './pipes/upper.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NotFoundComponent } from './not-found/not-found/not-found.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -35,6 +36,7 @@ import { NotFoundComponent } from './not-found/not-found/not-found.component';
     UpperPipe,
     NavbarComponent,
     NotFoundComponent,
+    FooterComponent,
   
   ],
   imports: [

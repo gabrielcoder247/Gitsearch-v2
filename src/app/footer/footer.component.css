@@ -1,0 +1,12 @@
+.footer{
+
+    border-color: rgba(43, 65, 65, 0.5);
+    background-color: rgba(43, 65, 65, 0.5);
+    height: 100px;
+    
+}
+
+.footer-note{
+    text-align: center;
+    
+}
